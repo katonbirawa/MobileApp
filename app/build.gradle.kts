@@ -8,13 +8,13 @@ plugins {
 android {
     namespace = "com.example.mobileadvapp"
     compileSdk {
-        version = release(36) // Versi SDK untuk compile (sebaiknya langsung angka: compileSdk = 36)
+        version = release(37) // Versi SDK untuk compile (sebaiknya langsung angka: compileSdk = 36)
     }
 
     defaultConfig {
         applicationId = "com.example.mobileadvapp" // ID unik aplikasi
         minSdk = 24 // Minimum versi Android yang didukung
-        targetSdk = 36 // Target versi Android
+        targetSdk = 37 // Target versi Android
         versionCode = 1 // Nomor versi internal (untuk update)
         versionName = "1.0" // Nama versi yang ditampilkan ke user
 
