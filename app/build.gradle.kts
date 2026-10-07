@@ -8,13 +8,13 @@ plugins {
 android {
     namespace = "com.example.mobileadvapp"
     compileSdk {
-        version = release(37) // Versi SDK untuk compile (sebaiknya langsung angka: compileSdk = 36)
+        version = release(35) // Versi SDK untuk compile (sebaiknya langsung angka: compileSdk = 36)
     }
 
     defaultConfig {
         applicationId = "com.example.mobileadvapp" // ID unik aplikasi
         minSdk = 24 // Minimum versi Android yang didukung
-        targetSdk = 37 // Target versi Android
+        targetSdk = 35 // Target versi Android
         versionCode = 1 // Nomor versi internal (untuk update)
         versionName = "1.0" // Nama versi yang ditampilkan ke user
 
@@ -31,11 +31,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11" // Target JVM untuk Kotlin adalah versi 11
+        jvmTarget = "17" // Target JVM untuk Kotlin adalah versi 11
     }
     buildFeatures {
         viewBinding = true // Mengaktifkan View Binding untuk akses view lebih aman dan mudah
@@ -61,5 +61,16 @@ dependencies { //mendeklarasikan pustaka/library eksternal yang dibutuhkan oleh 
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    dependencies {
+        // Downgrade core-ktx ke versi stabil yang cocok dengan SDK 35
+        implementation("androidx.core:core-ktx:1.13.1")
+
+        // Downgrade activity & activity-ktx
+        implementation("androidx.activity:activity-ktx:1.9.3")
+
+        // Jika kamu menggunakan lifecycle / compose
+        implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+
+
+    }
 }

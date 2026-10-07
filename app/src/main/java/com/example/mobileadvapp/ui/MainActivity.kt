@@ -1,8 +1,8 @@
-package com.example.mobileadvapp
+package com.example.mobileadvapp.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.mobileadvapp.databinding.ActivityMainBinding
 
@@ -23,4 +23,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
