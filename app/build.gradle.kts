@@ -1,25 +1,24 @@
-plugins {
-    alias(libs.plugins.android.application) // Plugin untuk aplikasi Android
-    alias(libs.plugins.kotlin.android) // Plugin Kotlin untuk Android
-    alias(libs.plugins.kotlin.compose)  // Plugin Kotlin Compose (UI deklaratif)
 
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
     namespace = "com.example.mobileadvapp"
-    compileSdk {
-        version = release(35) // Versi SDK untuk compile (sebaiknya langsung angka: compileSdk = 36)
-    }
+    compileSdk = 35  // Ubah dari format blok menjadi penugasan langsung
 
     defaultConfig {
-        applicationId = "com.example.mobileadvapp" // ID unik aplikasi
-        minSdk = 24 // Minimum versi Android yang didukung
-        targetSdk = 35 // Target versi Android
-        versionCode = 1 // Nomor versi internal (untuk update)
-        versionName = "1.0" // Nama versi yang ditampilkan ke user
+        applicationId = "com.example.mobileadvapp"
+        minSdk = 24
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+    // ... sisa kode di bawahnya tetap sama
 
     buildTypes {
         release {
@@ -40,6 +39,17 @@ android {
     buildFeatures {
         viewBinding = true // Mengaktifkan View Binding untuk akses view lebih aman dan mudah
     }
+}
+
+dependencies {
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.11.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    // Navigation Component & SafeArgs
+    implementation("androidx.navigation:navigation-fragment-ktx:2.8.0")
+    implementation("androidx.navigation:navigation-ui-ktx:2.8.0")
 }
 
 dependencies { //mendeklarasikan pustaka/library eksternal yang dibutuhkan oleh aplikasi agar

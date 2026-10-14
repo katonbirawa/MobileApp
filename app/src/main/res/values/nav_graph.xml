@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.mobileadvapp.ui.LoginFragment"
+        android:label="Login Fragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.mobileadvapp.ui.CategoryFragment"
+        android:label="Category Fragment"
+        tools:layout="@layout/fragment_category">
+        <action
+            android:id="@+id/action_categoryFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.mobileadvapp.ui.ProductDetailFragment"
+        android:label="Product Detail Fragment"
+        tools:layout="@layout/fragment_product_detail">
+        <action
+            android:id="@+id/action_productDetailFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.mobileadvapp.ui.CartFragment"
+        android:label="Cart Fragment"
+        tools:layout="@layout/fragment_cart">
+        <argument
+            android:name="productName"
+            app:argType="string"
+            android:defaultValue="Laptop Gaming AMIKOM" />
+        <argument
+            android:name="productQuantity"
+            app:argType="integer"
+            android:defaultValue="1" />
+        <action
+            android:id="@+id/action_cartFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment"
+            app:popUpTo="@id/categoryFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+</navigation>
